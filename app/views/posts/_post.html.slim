@@ -1,31 +1,30 @@
-- cache @post do
-  h2
-    = link_to @post.title, @post
+h2
+  = link_to @post.title, @post
 
-  .post-meta
-    ul.list-inline
+.post-meta
+  ul.list-inline
+    li
+      i.fa.fa-calendar-o
+      | &nbsp;
+      = @post.created_at.strftime("%F")
+    li
+      i.fa.fa-tag
+      | &nbsp;
+      = @post.category.title
+    - if policy(@post).update? || policy(@post).destroy?
       li
-        i.fa.fa-calendar-o
-        | &nbsp;
-        = @post.created_at.strftime("%F")
-      li
-        i.fa.fa-tag
-        | &nbsp;
-        = @post.category.title
-      - if policy(@post).update? || policy(@post).destroy?
-        li
-          |(
-          - if policy(@post).update?
-            = link_to edit_post_path(@post) do
-              | &nbsp;
-              i.fa.fa-edit
-          - if policy(@post).update? && policy(@post).destroy?
-            | &nbsp;|&nbsp;
-          - if policy(@post).destroy?
-            = link_to @post, method: :delete, data: { confirm: "您确认删除文章 #{@post.title} 吗？" } do
-              i.fa.fa-trash-o
-              | &nbsp;
-          |)
+        |(
+        - if policy(@post).update?
+          = link_to edit_post_path(@post) do
+            | &nbsp;
+            i.fa.fa-edit
+        - if policy(@post).update? && policy(@post).destroy?
+          | &nbsp;|&nbsp;
+        - if policy(@post).destroy?
+          = link_to @post, method: :delete, data: { confirm: "您确认删除文章 #{@post.title} 吗？" } do
+            i.fa.fa-trash-o
+            | &nbsp;
+        |)
 
-  .post-content
-    = markdown @post.content
+.post-content
+  = markdown @post.content
