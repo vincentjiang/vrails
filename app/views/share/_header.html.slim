@@ -1,0 +1,20 @@
+header.vheader.clearfix
+  h1.vbrand.pull-left
+    = link_to ENV["PROJECT_NAME"], root_url
+  ul.vnavbar.pull-right.list-inline
+    li
+      = link_to posts_url do
+        i.fa.fa-archive
+    - if current_user
+      li
+        = link_to categories_url do
+          i.fa.fa-list-ul
+    li
+      = link_to about_url do
+        i.fa.fa-user
+    li
+      = link_to links_url do
+        i.fa.fa-link
+    li
+      = link_to feed_path, target: "_blank" do
+        i.fa.fa-rss

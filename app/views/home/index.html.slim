@@ -1,0 +1,9 @@
+- if @post
+  = render 'posts/post'
+
+  .more-post
+    = link_to posts_path do
+      | 更多文章&nbsp;
+      i.fa.fa-angle-double-right
+- else
+  h1 暂时没有文章

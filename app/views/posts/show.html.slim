@@ -1,0 +1,15 @@
+= render 'post'
+
+nav
+  ul.pager
+    - if @pre_post
+      li.previous
+        = link_to @pre_post do
+          span aria-hidden="true" &larr;&nbsp;
+          | Previous
+    - if @next_post
+      li.next
+        = link_to @next_post do
+          | Next
+          | &nbsp;
+          span aria-hidden="true" &rarr;

@@ -1,0 +1,36 @@
+h2 友情链接
+
+- if policy(@links).index?
+  table.table.table-hover.table-condensed
+    tr
+      th 名称
+      th 链接
+      th 动作
+    - @links.each do |link|
+      tr id="link-#{link.id}"
+        td = link.title
+        td = link.link
+        td
+          ul.list-inline
+            li
+              = link_to edit_link_path(link), class: "btn btn-warning btn-xs" do
+                i.fa.fa-edit
+                | &nbsp;
+                | 修改
+            li
+              = link_to link, class: "btn btn-danger btn-xs", method: :delete, remote: true, data: { confirm: "您确认删除分类 #{link.title} 吗？" }, remote: true do
+                i.fa.fa-trash-o
+                | &nbsp;
+                | 删除
+
+  = link_to "新建友情链接", new_link_path, class: "btn btn-success btn-sm"
+- else
+  - @links.in_groups_of(4) do |group|
+    .row
+      - group.compact.each do |link|
+        .col-md-3.link-item
+          = link_to link.link, target: "_blank" do
+            i.fa.fa-globe
+            | &nbsp;
+            = link.title
+

@@ -1,0 +1,13 @@
+- @posts.group_by{ |posts| posts.created_at.year }.each do |group|
+  .row
+    .col-md-12
+      h4.post-year
+        i.fa.fa-archive
+        | &nbsp;
+        = group[0]
+  ul.list-unstyled.posts-list
+    - group[1].each do |post|
+      li
+        span.post-date
+          = post.created_at.strftime("%F")
+        = link_to post.title, post, class: "post-title"

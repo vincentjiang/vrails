@@ -1,0 +1,32 @@
+doctype html
+html
+  head
+    meta charset="utf-8"
+    meta http-equiv="X-UA-Compatible" content="IE=edge"
+    meta name="viewport" content="width=device-width, initial-scale=1"
+    meta name="author" content=ENV['USERNAME']
+    meta content=meta_keywords name="keywords"
+    meta content=meta_description name="description"
+    title = page_title
+    = favicon_link_tag "favicon.ico", rel:"shortcut icon", type: "image/x-icon"
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
+    = yield :css_top
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+
+  body.vbody
+    .container
+      = render 'share/header'
+      .vcontent
+        = flash_messages(:close, :fade)
+        = yield
+      = render 'share/footer'
+
+      a.to-top
+        i.fa.fa-arrow-circle-up
+    = yield :js_bottom
+
+  coffee:
+    $('.to-top').toTop
+      right: 60
+      bottom: 60

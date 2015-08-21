@@ -1,0 +1,14 @@
+footer.vfooter
+  p.text-center
+    i.fa.fa-copyright
+    = " 2014 ~ #{ Time.now.year.to_s } #{ENV["USERNAME"]} | Fork "
+    = link_to "Me", "https://github.com/vincentjiang/vrails", target: "_blank", class: "fork-me"
+    | &nbsp;|&nbsp;
+    - if current_user
+      = link_to "Logout", logout_url, method: :delete
+    - else
+      = link_to "Admin", login_url
+
+
+- content_for :js_bottom do
+  = javascript_include_tag "http://www.google-analytics.com/analytics.js"

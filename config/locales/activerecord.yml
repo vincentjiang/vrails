@@ -1,0 +1,16 @@
+---
+zh-CN:
+  activerecord:
+    models:
+      category: 分类
+      post: 文章
+    attributes:
+      category:
+        title: 名称
+      post:
+        title: 名称
+        content: 正文
+        publish: 发布
+      link:
+        title: 名称
+        link: 链接

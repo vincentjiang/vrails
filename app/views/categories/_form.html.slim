@@ -1,0 +1,17 @@
+/modal form for creating category
+
+.modal.fade#category-form
+  .modal-dialog
+    .modal-content
+        = form_for @category, remote: true do |f|
+          .modal-header
+            button.close type="button" data-dismiss="modal"
+              span &times;
+            h4.modal-title 新建分类
+          .modal-body
+            = f.text_field :title, class: "form-control", placeholder: "请输入分类名称"
+            div
+              p.text-danger.hidden#category-title-error
+          .modal-footer
+            button.btn.btn-default data-dismiss="modal" 返回
+            = f.submit "提交", class: "btn btn-success"

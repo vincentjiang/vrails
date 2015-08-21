@@ -1,0 +1,17 @@
+# Add configuration values here, as shown below.
+#
+# pusher_app_id: "2954"
+# pusher_key: 7381a978f7dd7f9a1117
+# pusher_secret: abdc3b896a0ffb85d373
+# stripe_api_key: sk_test_2J0l093xOyW72XUYJHE4Dv2r
+# stripe_publishable_key: pk_test_ro9jV5SNwGb1yYlQfzG17LHK
+#
+# production:
+#   stripe_api_key: sk_live_EeHnL644i6zo4Iyq4v1KdV9H
+#   stripe_publishable_key: pk_live_9lcthxpSIHbGwmdO941O1XVU
+
+PROJECT_NAME: "VincentJiang"
+USERNAME: "VincentJiang"
+META_DESCRIPTION: "这是Vincentjiang的博客, VincentJiang是居住在深圳的一名 Ruby 程序员,是Ruby On Rails的狂热爱好者，希望日后成为一位杰出的全栈开发人员"
+META_KEYWORDS: "Vrails, VincentJiang, Rails, Ruby On Rails, RoR"
+VRAILS_DATABASE_PASSWORD: ""

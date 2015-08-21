@@ -1,0 +1,44 @@
+= form_for @post, html: { id: "post-form" } do |f|
+  .row.form-group
+    .col-md-4
+      = f.text_field :title, class: "form-control", placeholder: "文章标题"
+    .col-md-4
+      = f.label :publish, value: true, class: "radio-inline"
+        = f.radio_button :publish, true
+        | 发布
+      = f.label :publish, value: false, class: "radio-inline"
+        = f.radio_button :publish, false
+        | 草稿
+  .row.form-group
+    .col-md-4
+      = f.select :category_id, Category.all.map{ |c| [c.title, c.id] }, { prompt: "选择分类" }, class: "form-control"
+    .col-md-2
+      a.btn.btn-link data-toggle="modal" data-target="#category-form" 新建分类
+  .row.form-group
+    .col-md-12
+      = f.label :content, "使用markdown语法编写文章:"
+      = f.text_area :content, class: "form-control", rows: 20, placeholder: "文章内容……"
+  .row.form-group
+    .col-md-12
+      = f.submit "提交", class: "btn btn-success"
+      | &nbsp;&nbsp;
+      = link_to "返回", @post, class: "btn btn-link"
+
+= render 'categories/form'
+
+/modal form for creating category
+.modal.fade#category-form
+  .modal-dialog
+    .modal-content
+        = form_for @category, remote: true do |f|
+          .modal-header
+            button.close type="button" data-dismiss="modal"
+              span &times;
+            h4.modal-title 新建分类
+          .modal-body
+            = f.text_field :title, class: "form-control", placeholder: "请输入分类名称"
+            div
+              p.text-danger.hidden#category-title-error
+          .modal-footer
+            button.btn.btn-default data-dismiss="modal" 返回
+            = f.submit "提交", class: "btn btn-success"

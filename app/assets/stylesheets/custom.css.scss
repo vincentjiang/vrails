@@ -1,0 +1,142 @@
+body {
+  font-family: telexregular, Hiragino Sans GB, Microsoft YaHei, sans-serif !important;
+  background-color: #f0f3ef !important;
+  color: #555 !important;
+  h1, h2, h3, h4, h5, h6 {
+    font-weight:bolder;
+  }
+  h1 {font-size: 28px;}
+  h2 {font-size: 24px;}
+  h3 {font-size: 20px;}
+  h4 {font-size: 16px;}
+  @media (min-width: 1200px) {
+    .container {
+      width: 998px;
+    }
+  }
+  p {
+    font-size: 14px !important;
+    line-height: 2em;
+  }
+  img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+  }
+  a, a.btn-link {
+    color: #bb2222;
+    &:hover {
+      color: #bb2222;
+    }
+  }
+  ol li {line-height: 30px;}
+}
+
+.vheader {
+  border-bottom: 2px dashed #ccc;
+  margin-bottom: 30px;
+  padding: 20px 0;
+  .vnavbar {
+    padding-top: 30px;
+  }
+  a {
+    color: #555;
+    text-decoration: none;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+.vcontent {
+  h2 a {
+    color: #555;
+    &:hover {
+      color: #bb2222;
+      text-decoration: none;
+    }
+  }
+  min-height: 500px;
+  form {
+    margin: 20px 0;
+    label {
+      margin-bottom: 10px;
+    }
+  }
+  .post-meta {
+    padding: 10px 0 20px 0;
+  }
+  .posts-list {
+    margin-left: 10px;
+    li {
+      padding-top: 14px;
+      a {
+        color: #bb2222;
+        margin-left: 70px;
+      }
+    }
+  }
+  #post-form {
+    label.radio-inline {
+      margin-top: 5px;
+    }
+  }
+  table {
+    margin-top: 30px;
+  }
+  .more-post {
+    font-weight:bolder;
+    margin-top: 40px;
+    font-size: 18px;
+    a {
+      color: #bb2222;
+    }
+  }
+  .link-item {
+    padding-top: 20px;
+    font-weight:bolder;
+    line-height: 20px;
+    a {
+      color: #555;
+      &:hover {
+        font-size: 15px;
+        color: #bb2222;
+        text-decoration: none;
+      }
+    }
+  }
+  .about-me {
+    margin-top: 40px;
+    li {
+      padding-bottom: 10px;
+      p {
+        padding: 5px 10px;
+        background-color: #E4E4DC;
+        border: 1px dashed #ccc;
+        margin-top: 10px;
+        border-radius: 4px;
+      }
+    }
+  }
+}
+
+.vfooter {
+  border-top: 2px dashed #ccc;
+  padding-top: 30px;
+  margin: 60px 0;
+}
+
+
+/*go to top*/
+a.to-top {
+  font-size: 34px;
+  color: #678;
+}
+
+
+/*markdown*/
+pre {
+  margin: 0 0 16px !important;
+  background-color: #e4e4dc !important;
+  border: 1px dashed #ccc !important;
+}
