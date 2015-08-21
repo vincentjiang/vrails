@@ -7,7 +7,7 @@ class ApplicationPolicy
   end
 
   def index?
-    user && (user.has_role? :admin)
+    user && user.has_role?(:admin)
   end
 
   def show?
@@ -15,7 +15,7 @@ class ApplicationPolicy
   end
 
   def create?
-    user.has_role? :admin
+    user && user.has_role?(:admin)
   end
 
   def new?
@@ -23,7 +23,7 @@ class ApplicationPolicy
   end
 
   def update?
-    user && (user.has_role? :admin)
+    user && user.has_role?(:admin)
   end
 
   def edit?
@@ -31,7 +31,7 @@ class ApplicationPolicy
   end
 
   def destroy?
-    user && (user.has_role? :admin)
+    user && user.has_role?(:admin)
   end
 
   def scope
@@ -51,7 +51,7 @@ class ApplicationPolicy
     end
 
     def update?
-      user.has_role? :admin
+      user && user.has_role?(:admin)
     end
   end
 end

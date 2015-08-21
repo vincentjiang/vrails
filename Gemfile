@@ -1,4 +1,4 @@
-if ENV["SOURCE"] == "https://rubygems.org"
+if ENV['SOURCE'] == 'https://rubygems.org'
   source 'https://rubygems.org'
 else
   source 'https://ruby.taobao.org'
