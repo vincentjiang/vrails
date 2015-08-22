@@ -1,3 +1,7 @@
+- if policy(:post).new?
+  .pull-right
+    = link_to "新建文章", new_post_path, class: "btn btn-primary btn-sm"
+
 - @posts.group_by{ |posts| posts.created_at.year }.each do |group|
   .row
     .col-md-12
