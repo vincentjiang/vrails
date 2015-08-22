@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   def index
-    @post = Post.publish.last
+    @post = Post.publish.order(created_at: :desc).last
   end
 
   def about
