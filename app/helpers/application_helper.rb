@@ -1,13 +1,26 @@
 module ApplicationHelper
 
   class CodeRayify < Redcarpet::Render::HTML
+    include ActionView::Helpers::AssetTagHelper
+    include ActionView::Helpers::UrlHelper
+
     def initialize(extensions = {})
       # 在所有链接中加入target: "_blank"的属性
       super extensions.merge(link_attributes: { target: "_blank" })
     end
+
+    # 如果没有标明代码的语言，则使用plaintext来代替
     def block_code(code, language)
       language ||= :plaintext
       CodeRay.scan(code, language).div
+    end
+
+    # 改写image方法
+    def image(link, title, content)
+      filename = link.split("/").last
+      link = "#{ENV["QINIU_DOMAIN"]}/#{filename}"
+      title = content if title.blank?
+      link_to image_tag(link, title: title, alt: content), link, class: "fancybox"
     end
   end
 
