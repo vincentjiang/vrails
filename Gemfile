@@ -15,7 +15,8 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'bcrypt', '~> 3.1.7'
 gem 'mysql2'
-gem "figaro"
+gem 'figaro'
+gem 'friendly_id'
 
 gem 'bootstrap-sass', '~> 3.3.5'
 gem 'font-awesome-sass', '~> 4.3.0'
