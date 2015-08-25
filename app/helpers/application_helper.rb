@@ -46,6 +46,6 @@ module ApplicationHelper
   end
 
   def page_title
-    @page_title = ENV["PROJECT_NAME"]
+    @page_title.present? ? "#{ENV["PROJECT_NAME"]} | #{@page_title}" : "#{ENV["PROJECT_NAME"]}"
   end
 end

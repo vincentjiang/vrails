@@ -54,6 +54,7 @@ class PostsController < ApplicationController
         redirect_to posts_url and return unless @post.publish
       end
       authorize @post
+      @page_title = @post.title
     end
 
     def post_params
