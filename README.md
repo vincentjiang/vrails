@@ -1,7 +1,8 @@
-## README
+## ENVIRONMENT
 
 * Ruby 2.2.2
 * Rails 4.2.2
+* MySQL
 
 ## STEP UP SYSTEM
 
