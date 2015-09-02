@@ -18,6 +18,9 @@ class SessionsController < ApplicationController
         flash.now[:error] = @user_session.errors.full_messages.join(", ")
         render :new
       end
+    else
+      flash.now[:error] = "邮箱或密码错误，请重试"
+      render :new
     end
   end
 
