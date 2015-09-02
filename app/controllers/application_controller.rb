@@ -29,10 +29,6 @@ class ApplicationController < ActionController::Base
     redirect_to referer unless (@current_user && @current_user.admin?)
   end
 
-  def user_not_authorized
-    redirect_to (referer), alert: "您没有此权限"
-  end
-
   def render_404(exception = nil)
     logger.info "Rendering 404: #{exception.message}" if exception
     render file: "#{Rails.root}/public/404.html", status: 404, layout: false

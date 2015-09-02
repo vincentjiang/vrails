@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
   resources :categories, only: [:index, :create, :destroy]
   resources :posts
-  resources :links
+  resources :links, except: [:show]
 
   match "*path", to: "home#four_oh_four", via: :all
 end
