@@ -8,7 +8,7 @@ table.table.table-hover.table-condensed
   - @categories.each do |category|
     tr id="category-#{category.id}"
       td = category.title
-      td = category.posts.publish.count
+      td = category.posts.count
       td
         - if category.posts.count.zero?
           = link_to category, class: "btn btn-danger btn-xs", method: :delete, remote: true, data: { confirm: "您确认删除分类 #{category.title} 吗？" } do
