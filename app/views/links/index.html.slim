@@ -1,6 +1,6 @@
 h2 友情链接
 
-- if policy(@links).index?
+- if current_user && current_user.admin?
   table.table.table-hover.table-condensed
     tr
       th 名称

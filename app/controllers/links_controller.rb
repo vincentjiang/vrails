@@ -1,5 +1,7 @@
 class LinksController < ApplicationController
+  skip_before_action :require_login, only: [:index]
   before_action :set_link, only: [:show, :edit, :update, :destroy]
+  before_action :require_admin, only: [:new, :edit, :create, :update, :destroy]
 
   def index
     @links = Link.all
@@ -40,7 +42,6 @@ class LinksController < ApplicationController
 
     def set_link
       @link = Link.find(params[:id])
-      authorize @link
     end
 
     def link_params

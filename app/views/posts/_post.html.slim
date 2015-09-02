@@ -11,19 +11,16 @@ h2
       i.fa.fa-tag
       | &nbsp;
       = @post.category.title
-    - if policy(@post).update? || policy(@post).destroy?
+    - if current_user && current_user.can_manage?(@post)
       li
         |(
-        - if policy(@post).update?
-          = link_to edit_post_path(@post) do
-            | &nbsp;
-            i.fa.fa-edit
-        - if policy(@post).update? && policy(@post).destroy?
-          | &nbsp;|&nbsp;
-        - if policy(@post).destroy?
-          = link_to @post, method: :delete, data: { confirm: "您确认删除文章 #{@post.title} 吗？" } do
-            i.fa.fa-trash-o
-            | &nbsp;
+        = link_to edit_post_path(@post) do
+          | &nbsp;
+          i.fa.fa-edit
+        | &nbsp;|&nbsp;
+        = link_to @post, method: :delete, data: { confirm: "您确认删除文章 #{@post.title} 吗？" } do
+          i.fa.fa-trash-o
+          | &nbsp;
         |)
 
 .post-content

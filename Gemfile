@@ -26,9 +26,6 @@ gem 'slim-rails'
 gem 'carrierwave'
 gem 'ransack' # search
 gem 'whenever', :require => false
-gem 'authlogic'
-gem 'rolify'
-gem 'pundit'
 gem 'nprogress-rails' # Slim progress bars for Ajax'y applications
 gem 'exception_notification' # Exception Notifier Plugin for Rails
 

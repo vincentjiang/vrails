@@ -1,22 +1,28 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
+  skip_before_action :require_login, only: [:index, :show]
+  before_action :set_post, only: [:edit, :update, :destroy]
 
   def index
-    @posts = (current_user && current_user.has_role?(:admin)) ? Post.order(created_at: :desc) : Post.publish.order(created_at: :desc)
+    @posts = (current_user && current_user.admin?) ? Post.order(created_at: :desc) : Post.publish.order(created_at: :desc)
   end
 
   def show
-    @pre_post = Post.where(id: @post.id - 1).first
-    @next_post = Post.where(id: @post.id + 1).first
+    @post = Post.friendly.find(params[:id])
+    redirect_to referer if !@post.publish && (current_user && !current_user.admin?)
+    publish_ids = Post.publish.ids
+    pre_post_id = publish_ids.select{|id| id < @post.id}.last
+    next_post_id = publish_ids.select{|id| id > @post.id}.first
+    @pre_post = Post.where(id: pre_post_id).first if pre_post_id
+    @next_post = Post.where(id: next_post_id).first if next_post_id
   end
 
   def new
     @post = Post.new
-    authorize @post
     @category = Category.new
   end
 
   def edit
+    redirect_to referer unless @current_user.can_manage?(@post)
     @category = Category.new
   end
 
@@ -32,6 +38,7 @@ class PostsController < ApplicationController
   end
 
   def update
+    redirect_to referer unless @current_user.can_manage?(@post)
     if @post.update(post_params)
       redirect_to @post, notice: "修改文章 #{@post.title} 成功"
     else
@@ -42,6 +49,7 @@ class PostsController < ApplicationController
   end
 
   def destroy
+    redirect_to referer unless @current_user.can_manage?(@post)
     @post.destroy
     redirect_to posts_url, notice: "删除文章 #{@post.title} 成功"
   end
@@ -50,10 +58,7 @@ class PostsController < ApplicationController
 
     def set_post
       @post = Post.friendly.find(params[:id])
-      unless current_user
-        redirect_to posts_url and return unless @post.publish
-      end
-      authorize @post
+      redirect_to posts_url and return unless (current_user && current_user.can_manage?(@post))
       @page_title = @post.title
     end
 

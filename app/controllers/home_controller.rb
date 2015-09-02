@@ -1,4 +1,5 @@
 class HomeController < ApplicationController
+  skip_before_action :require_login
   def index
     @post = Post.publish.order(created_at: :desc).first
   end
