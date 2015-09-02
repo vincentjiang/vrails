@@ -12,7 +12,7 @@
 
 common: &default_settings
   # Required license key associated with your New Relic account.
-  license_key: 386ca378ce8b537f3737e97602e058d0f925882c
+  license_key: <%= ENV["NEWRELIC_KEY"] %>
 
   # Your application name. Renaming here affects where data displays in New
   # Relic.  For more details, see https://docs.newrelic.com/docs/apm/new-relic-apm/maintenance/renaming-applications
@@ -28,18 +28,19 @@ common: &default_settings
 # Environment-specific settings are in this section.
 # RAILS_ENV or RACK_ENV (as appropriate) is used to determine the environment.
 # If your application has other named environments, configure them here.
-development:
-  <<: *default_settings
-  app_name: vrails (Development)
 
-  # NOTE: There is substantial overhead when running in developer mode.
-  # Do not use for production or load testing.
-  developer_mode: true
+#development:
+  #<<: *default_settings
+  #app_name: vrails (Development)
 
-test:
-  <<: *default_settings
-  # It doesn't make sense to report to New Relic from automated test runs.
-  monitor_mode: false
+  ## NOTE: There is substantial overhead when running in developer mode.
+  ## Do not use for production or load testing.
+  #developer_mode: true
+
+#test:
+  #<<: *default_settings
+  ## It doesn't make sense to report to New Relic from automated test runs.
+  #monitor_mode: false
 
 staging:
   <<: *default_settings
