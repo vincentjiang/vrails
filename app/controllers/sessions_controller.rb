@@ -4,22 +4,12 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.find_by(email: params[:user][:email])
-    if user
-      unless user.activation?
-        flash.now[:error] = "此邮箱还没有被激活，请激活后再尝试登录"
-        render :new and return
-      end
-      if user.authenticate(params[:user][:password])
-        session[:user_id] = user.id
-        user.update_last_login_time
-        redirect_to (params[:form].present? ? params[:from] : root_path), notice: "登录成功"
-      else
-        flash.now[:error] = @user_session.errors.full_messages.join(", ")
-        render :new
-      end
+    result = User.login_confirm(params[:user][:email], params[:user][:password])
+    if result[:user_id]
+      session[:user_id] = result[:user_id]
+      redirect_to root_path, notice: "登录成功"
     else
-      flash.now[:error] = "邮箱或密码错误，请重试"
+      flash.now[:error] = result[:error]
       render :new
     end
   end

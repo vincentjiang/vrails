@@ -1,12 +1,11 @@
 FactoryGirl.define do
   factory :user do
-    email "MyString"
-username "MyString"
-password_digest "MyString"
-admin false
-last_login_time ""
-avatar "MyString"
-activation false
+    email "username@example.com"
+    username "UserName"
+    admin true
+    last_login_time ""
+    avatar "MyString"
+    activation true
   end
 
 end

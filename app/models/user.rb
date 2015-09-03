@@ -18,4 +18,21 @@ class User < ActiveRecord::Base
   def can_manage?(post)
     self.id == post.user_id
   end
+
+  def self.login_confirm(email, password)
+    user = User.find_by(email: email)
+    result = if user
+               if !user.activation?
+                 { error: "此邮箱还没有被激活，请激活后再尝试登录" }
+               elsif !user.authenticate(password)
+                 { error: "邮箱或密码错误，请重试" }
+               else
+                 user.update_last_login_time
+                 { user_id: user.id }
+               end
+             else
+               { error: "邮箱或密码错误，请重试" }
+             end
+  end
+
 end
