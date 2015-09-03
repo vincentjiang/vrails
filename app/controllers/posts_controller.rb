@@ -17,7 +17,7 @@ class PostsController < ApplicationController
   end
 
   def new
-    @post = Post.new
+    @post = current_user.posts.new
     @category = Category.new
   end
 
@@ -27,7 +27,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(post_params)
+    @post = current_user.posts.new(post_params)
 
     if @post.save
       redirect_to @post, notice: "创建文章 #{@post.title} 成功"
@@ -38,7 +38,6 @@ class PostsController < ApplicationController
   end
 
   def update
-    redirect_to referer unless @current_user.can_manage?(@post)
     if @post.update(post_params)
       redirect_to @post, notice: "修改文章 #{@post.title} 成功"
     else
@@ -49,7 +48,6 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    redirect_to referer unless @current_user.can_manage?(@post)
     @post.destroy
     redirect_to posts_url, notice: "删除文章 #{@post.title} 成功"
   end
@@ -57,8 +55,8 @@ class PostsController < ApplicationController
   private
 
     def set_post
-      @post = Post.friendly.find(params[:id])
-      redirect_to posts_url and return unless (current_user && current_user.can_manage?(@post))
+      @post = current_user.posts.friendly.find(params[:id])
+      redirect_to posts_url and return unless @post
       @page_title = @post.title
     end
 
