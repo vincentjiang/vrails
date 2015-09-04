@@ -1,3 +1,8 @@
+- cookies_key = "vrails-posts-#{@post.title}-visited".to_sym
+- unless cookies[cookies_key].present?
+    - cookies[cookies_key] = { value: true, expires: 1.year.from_now }
+    - @post.increase_visite_times
+
 h2
   = link_to @post.title, @post
 
@@ -11,6 +16,10 @@ h2
       i.fa.fa-tag
       | &nbsp;
       = @post.category.title
+    li
+      i.fa.fa-eye
+      | &nbsp;
+      = @post.visite_times
     - if current_user && current_user.can_manage?(@post)
       li
         |(

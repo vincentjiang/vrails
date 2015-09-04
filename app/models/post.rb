@@ -9,4 +9,9 @@ class Post < ActiveRecord::Base
   belongs_to :category
 
   scope :publish, -> { where(publish: true) }
+
+  def increase_visite_times
+    times = self.visite_times
+    self.update(visite_times: times+1)
+  end
 end
