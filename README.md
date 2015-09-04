@@ -16,8 +16,6 @@ User.create(
   username: "yourname",
   password: "password",
   password_confirmation: "password",
-  active: 1,
-  approved: 1,
-  confimed: 1
+  activation: true
 )
 ```

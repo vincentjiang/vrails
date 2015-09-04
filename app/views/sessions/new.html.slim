@@ -9,10 +9,5 @@
         = f.email_field :email, class: "form-control", placeholder: "username@example.com"
       .form-group
         = f.password_field :password, class: "form-control", placeholder: "more than 6 chars"
-      .checkbox
-        label
-          = f.check_box :remember_me
-          | &nbsp;
-          | 记住我
       .form-group
         = f.submit "登录", class: "btn btn-primary btn-block", data: { disable_with: "努力登录中，请稍候" }
