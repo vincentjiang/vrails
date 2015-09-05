@@ -4,17 +4,17 @@ header.vheader.clearfix
   ul.vnavbar.pull-right.list-inline
     li
       = link_to posts_url do
-        i.fa.fa-archive
+        = icon 'book'
     - if current_user
       li
         = link_to categories_url do
-          i.fa.fa-list-ul
+          = icon 'list-ul'
     li
       = link_to about_url do
-        i.fa.fa-user
+        = icon 'user'
     li
       = link_to links_url do
-        i.fa.fa-link
+        = icon 'link'
     li
       = link_to feed_path, target: "_blank" do
-        i.fa.fa-rss
+        = icon 'rss'

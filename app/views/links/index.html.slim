@@ -14,12 +14,12 @@ h2 友情链接
           ul.list-inline
             li
               = link_to edit_link_path(link), class: "btn btn-warning btn-xs" do
-                i.fa.fa-edit
+                = icon 'edit'
                 | &nbsp;
                 | 修改
             li
               = link_to link, class: "btn btn-danger btn-xs", method: :delete, remote: true, data: { confirm: "您确认删除分类 #{link.title} 吗？" }, remote: true do
-                i.fa.fa-trash-o
+                = icon 'trash-o'
                 | &nbsp;
                 | 删除
 
@@ -30,7 +30,7 @@ h2 友情链接
       - group.compact.each do |link|
         .col-md-3.link-item
           = link_to link.link, target: "_blank" do
-            i.fa.fa-globe
+            = icon 'internet-explorer'
             | &nbsp;
             = link.title
 

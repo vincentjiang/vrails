@@ -9,15 +9,15 @@ h2
 .post-meta
   ul.list-inline
     li
-      i.fa.fa-calendar-o
+      = icon 'calendar'
       | &nbsp;
       = @post.created_at.strftime("%F")
     li
-      i.fa.fa-tag
+      = icon 'tags'
       | &nbsp;
       = @post.category.title
     li
-      i.fa.fa-eye
+      = icon 'eye'
       | &nbsp;
       = @post.visite_times
     - if current_user && current_user.can_manage?(@post)
@@ -25,10 +25,10 @@ h2
         |(
         = link_to edit_post_path(@post) do
           | &nbsp;
-          i.fa.fa-edit
+          = icon 'edit'
         | &nbsp;|&nbsp;
         = link_to @post, method: :delete, data: { confirm: "您确认删除文章 #{@post.title} 吗？" } do
-          i.fa.fa-trash-o
+          = icon 'trash-o'
           | &nbsp;
         |)
 

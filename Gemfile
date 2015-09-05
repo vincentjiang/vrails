@@ -20,7 +20,7 @@ gem 'friendly_id'
 gem 'newrelic_rpm'
 
 gem 'bootstrap-sass', '~> 3.3.5'
-gem 'font-awesome-sass', '~> 4.3.0'
+gem 'font-awesome-sass'
 gem 'bootstrap_flash_messages'
 gem 'slim-rails'
 gem 'carrierwave'
