@@ -14,12 +14,13 @@
  *= require_self
  */
 
+html.turbolinks-progress-bar::before {
+  background-color: #bb2222 !important;
+  height: 3px !important;
+}
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
 @import "font-awesome-sprockets";
 @import "font-awesome";
-
-$nprogress-color: #bb2222;
-@import "nprogress";
-@import "nprogress-bootstrap";

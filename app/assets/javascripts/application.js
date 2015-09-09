@@ -14,6 +14,8 @@
 //= require bootstrap-sprockets
 //= require jquery_ujs
 //= require turbolinks
-//= require nprogress
-//= require nprogress-turbolinks
-//= require_tree .
+//= require jquery.toTop.min
+
+$('.to-top').toTop({right: 60, bottom: 60});
+
+Turbolinks.enableProgressBar();
