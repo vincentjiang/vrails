@@ -15,7 +15,6 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require jquery.toTop.min
-
-$('.to-top').toTop({right: 60, bottom: 60});
+//= require_tree .
 
 Turbolinks.enableProgressBar();
