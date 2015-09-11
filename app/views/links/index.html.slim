@@ -1,5 +1,14 @@
 h2 友情链接
 
+- @links.in_groups_of(4) do |group|
+  .row
+    - group.compact.each do |link|
+      .col-md-3.link-item
+        = link_to link.link, target: "_blank" do
+          = icon 'internet-explorer'
+          | &nbsp;
+          = link.title
+
 - if current_user && current_user.admin?
   table.table.table-hover.table-condensed
     tr
@@ -24,13 +33,3 @@ h2 友情链接
                 | 删除
 
   = link_to "新建友情链接", new_link_path, class: "btn btn-success btn-sm"
-- else
-  - @links.in_groups_of(4) do |group|
-    .row
-      - group.compact.each do |link|
-        .col-md-3.link-item
-          = link_to link.link, target: "_blank" do
-            = icon 'internet-explorer'
-            | &nbsp;
-            = link.title
-
