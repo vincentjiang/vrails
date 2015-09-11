@@ -3,7 +3,7 @@ h2 友情链接
 - @links.in_groups_of(4) do |group|
   .row
     - group.compact.each do |link|
-      .col-md-3.link-item
+      .col-md-3.link-item id="list-link-#{link.id}"
         = link_to link.link, target: "_blank" do
           = icon 'internet-explorer'
           | &nbsp;
@@ -16,7 +16,7 @@ h2 友情链接
       th 链接
       th 动作
     - @links.each do |link|
-      tr id="link-#{link.id}"
+      tr id="table-link-#{link.id}"
         td = link.title
         td = link.link
         td
