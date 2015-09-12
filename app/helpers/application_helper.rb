@@ -22,6 +22,12 @@ module ApplicationHelper
       title = content if title.blank?
       link_to image_tag(link, title: title, alt: content), link, class: "fancybox"
     end
+
+    def table(header, body)
+      "<table class=\"table table-striped table-hover table-condensed table-bordered\">" \
+        "#{header}#{body}" \
+      "</table>"
+    end
   end
 
   def markdown(text)
@@ -32,7 +38,8 @@ module ApplicationHelper
       autolink: true,
       strikethrough: true,
       lax_html_blocks: true,
-      superscript: true
+      superscript: true,
+      tables: true
     }
     Redcarpet::Markdown.new(renderer, options).render(text).html_safe
   end
