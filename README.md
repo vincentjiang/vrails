@@ -19,3 +19,6 @@ User.create(
   activation: true
 )
 ```
+## EXAMPLE
+
+Please have a look my blog http://vrails.com/
