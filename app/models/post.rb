@@ -14,4 +14,13 @@ class Post < ActiveRecord::Base
     times = self.visite_times
     self.update(visite_times: times+1)
   end
+
+  def next_post
+    Post.publish.select{|post| post.id > self.id}.first
+  end
+
+  def pre_post
+    Post.publish.select{|post| post.id < self.id}.last
+  end
+
 end

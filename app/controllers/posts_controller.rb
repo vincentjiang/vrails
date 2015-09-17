@@ -8,12 +8,9 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.friendly.find(params[:id])
-    redirect_to referer if !@post.publish && (current_user && !current_user.admin?)
-    publish_ids = Post.publish.ids
-    pre_post_id = publish_ids.select{|id| id < @post.id}.last
-    next_post_id = publish_ids.select{|id| id > @post.id}.first
-    @pre_post = Post.where(id: pre_post_id).first if pre_post_id
-    @next_post = Post.where(id: next_post_id).first if next_post_id
+    redirect_to root_path if !@post.publish && current_user.nil?
+    @pre_post = @post.pre_post
+    @next_post = @post.next_post
   end
 
   def new
