@@ -18,7 +18,7 @@ module ApplicationHelper
     # 改写image方法
     def image(link, title, content)
       filename = link.split("/").last
-      link = "#{ENV["QINIU_DOMAIN"]}/#{filename}"
+      link = "#{ENV["QINIU_BUCKET_DOMAIN"]}/#{filename}"
       title = content if title.blank?
       link_to image_tag(link, title: title, alt: content), link, class: "fancybox"
     end
