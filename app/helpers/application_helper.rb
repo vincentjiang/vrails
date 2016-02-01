@@ -18,7 +18,7 @@ module ApplicationHelper
     # 改写image方法
     def image(link, title, content)
       filename = link.split("/").last
-      link = "#{ENV["QINIU_BUCKET_DOMAIN"]}/#{filename}"
+      link = "#{Settings.qiniu_bucket_domain}/#{filename}"
       title = content if title.blank?
       link_to image_tag(link, title: title, alt: content), link, class: "fancybox"
     end
@@ -44,15 +44,19 @@ module ApplicationHelper
     Redcarpet::Markdown.new(renderer, options).render(text).html_safe
   end
 
+  def author
+    Settings.author
+  end
+
   def meta_keywords
-    @meta_keywords || ENV["META_KEYWORDS"]
+    @meta_keywords || Settings.meta.keywords
   end
 
   def meta_description
-    @meta_description || ENV["META_DESCRIPTION"]
+    @meta_description || Settings.meta.description
   end
 
   def page_title
-    @page_title.present? ? "#{ENV["PROJECT_NAME"]} | #{@page_title}" : "#{ENV["PROJECT_NAME"]}"
+    @page_title.present? ? "#{author} | #{@page_title}" : "#{author}"
   end
 end

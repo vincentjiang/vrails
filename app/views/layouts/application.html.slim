@@ -7,11 +7,11 @@ html
     meta charset="utf-8"
     meta http-equiv="X-UA-Compatible" content="IE=edge"
     meta name="viewport" content="width=device-width, initial-scale=1"
-    meta name="author" content=ENV['USERNAME']
+    meta name="author" content=author
     meta content=meta_keywords name="keywords"
     meta content=meta_description name="description"
     title = page_title
-    = favicon_link_tag "#{ENV["QINIU_BUCKET_DOMAIN"]}/favicon.ico", rel:"shortcut icon", type: "image/x-icon"
+    = favicon_link_tag "#{Settings.qiniu_bucket_domain}/favicon.ico", rel:"shortcut icon", type: "image/x-icon"
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
     = yield :css_top
     = javascript_include_tag 'application', 'data-turbolinks-track' => true

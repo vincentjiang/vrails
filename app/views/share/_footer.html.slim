@@ -1,7 +1,12 @@
 footer.vfooter
   p.text-center
-    = icon 'copyright'
-    = " #{Post.all.map(&:created_at).min.year} ~ #{ Time.now.year.to_s } #{ENV["USERNAME"]} | Fork "
+    - if Post.count > 0
+      = icon 'copyright'
+      = " #{Post.all.map(&:created_at).min.year} ~ #{ Time.now.year.to_s } #{author} "
+    i.fa.fa-github
+    | &nbsp;
+    | Fork
+    | &nbsp;
     = link_to "Me", "https://github.com/vincentjiang/vrails", target: "_blank", class: "fork-me"
     | &nbsp;|&nbsp;
     - if current_user

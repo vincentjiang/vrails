@@ -15,10 +15,9 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'bcrypt', '~> 3.1.7'
 gem 'mysql2'
-gem 'figaro'
+gem 'config'
 gem 'friendly_id'
 gem 'newrelic_rpm'
-
 gem 'bootstrap-sass', '~> 3.3.5'
 gem 'font-awesome-sass'
 gem 'bootstrap_flash_messages'
@@ -27,7 +26,6 @@ gem 'carrierwave'
 gem 'ransack' # search
 gem 'whenever', :require => false
 gem 'exception_notification' # Exception Notifier Plugin for Rails
-
 gem 'redcarpet' # markdown
 gem 'coderay' # markdown highlight
 
