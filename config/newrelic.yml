@@ -1,4 +1,4 @@
 production:
-  license_key: <%= ENV["NEWRELIC_KEY"] %>
+  license_key: Settings.newrelic.key
   app_name: vrails
   log_level: info
