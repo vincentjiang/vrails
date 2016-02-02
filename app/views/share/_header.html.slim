@@ -16,5 +16,5 @@ header.vheader.clearfix
       = link_to links_url do
         = icon 'link'
     li
-      = link_to feed_path, target: "_blank" do
+      = link_to feed_path(format: :atom), target: "_blank" do
         = icon 'rss'

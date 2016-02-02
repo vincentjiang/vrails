@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   get 'index', to: 'home#index', as: :index
   get 'about', to: 'home#about', as: :about
-  get 'feed', to: 'home#feed', as: :feed, format: 'rss'
+  get 'feed', to: 'home#feed', as: :feed
 
   resources :users, only: [:new, :create]
   resources :sessions, only: [:create, :destroy]

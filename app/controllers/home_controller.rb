@@ -10,7 +10,7 @@ class HomeController < ApplicationController
   def feed
     @posts = Post.publish.order(created_at: :desc)
     respond_to do |format|
-      format.rss { render :layout => false }
+      format.atom
     end
   end
 
