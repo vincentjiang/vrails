@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'hello_world', to: 'hello_world#index'
   root 'posts#index'
 
   get 'index', to: 'home#index', as: :index
@@ -15,5 +16,5 @@ Rails.application.routes.draw do
   resources :posts
   resources :links, except: [:show]
 
-  match "*path", to: "home#four_oh_four", via: :all
+  #match "*path", to: "home#four_oh_four", via: :all
 end
