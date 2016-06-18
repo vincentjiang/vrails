@@ -4,7 +4,7 @@ else
   source 'https://ruby.taobao.org'
 end
 
-ruby '2.2.2'
+ruby '2.2.5'
 
 gem 'rails', '4.2.2'
 gem 'sass-rails', '~> 5.0'
@@ -28,6 +28,7 @@ gem 'whenever', :require => false
 gem 'exception_notification' # Exception Notifier Plugin for Rails
 gem 'redcarpet' # markdown
 gem 'coderay' # markdown highlight
+gem "react_on_rails", "~> 5" # integrate react
 
 gem 'puma'
 
