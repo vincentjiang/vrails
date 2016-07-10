@@ -1,34 +1,10 @@
 doctype html
 html
   head
-    / Tencent Analytics 网站测速
-    javascript:
-      var _speedMark = new Date();
-    meta charset="utf-8"
-    meta http-equiv="X-UA-Compatible" content="IE=edge"
-    meta name="viewport" content="width=device-width, initial-scale=1"
-    meta name="author" content=author
-    meta content=meta_keywords name="keywords"
-    meta content=meta_description name="description"
-    title = page_title
-    = favicon_link_tag "#{Settings.qiniu_bucket_domain}/favicon.ico", rel:"shortcut icon", type: "image/x-icon"
-    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
-    = yield :css_top
-    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    meta content=("text/html; charset=UTF-8") http-equiv="Content-Type"
+    title Vrails
     = csrf_meta_tags
-
-  body.vbody
-    .container
-      = render 'share/header'
-      .vcontent
-        = flash_messages(:close, :fade)
-        = yield
-      = render 'share/footer'
-
-      a.to-top
-        = icon 'arrow-circle-up'
-    = yield :js_bottom
-    coffee:
-      $('.to-top').toTop
-        right: 60
-        bottom: 60
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  body
+    = yield

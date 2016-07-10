@@ -1,4 +1,0 @@
-production:
-  license_key: Settings.newrelic.key
-  app_name: vrails
-  log_level: info

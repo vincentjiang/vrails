@@ -1,24 +1,24 @@
-## ENVIRONMENT
+# README
 
-* Ruby 2.2.2
-* Rails 4.2.2
-* MySQL
+This README would normally document whatever steps are necessary to get the
+application up and running.
 
-## STEP UP SYSTEM
+Things you may want to cover:
 
-``` shell
-$ rake db:create db:migrate db:seed
-```
+* Ruby version
 
-``` ruby
-User.create(
-  email: "yourname@example.com",
-  username: "yourname",
-  password: "password",
-  password_confirmation: "password",
-  activation: true
-)
-```
-## EXAMPLE
+* System dependencies
 
-Please have a look my blog http://vrails.com/
+* Configuration
+
+* Database creation
+
+* Database initialization
+
+* How to run the test suite
+
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+
+* ...

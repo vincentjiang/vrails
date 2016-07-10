@@ -1,12 +1,3 @@
-// DO NOT REQUIRE jQuery or jQuery-ujs in this file!
-// DO NOT REQUIRE TREE!
-
-// CRITICAL that vendor-bundle must be BEFORE bootstrap-sprockets and turbolinks
-// since it is exposing jQuery and jQuery-ujs
-
-//= require vendor-bundle
-//= require app-bundle
-
 // This is a manifest file that'll be compiled into application.js, which will include all the files
 // listed below.
 //
@@ -14,16 +5,12 @@
 // or any plugin's vendor/assets/javascripts directory can be referenced here using a relative path.
 //
 // It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
-// compiled file.
+// compiled file. JavaScript code in this file should be added after the last require_* statement.
 //
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-// require jquery
-//= require bootstrap-sprockets
-// require jquery_ujs
+//= require jquery
+//= require jquery_ujs
 //= require turbolinks
-//= require jquery.toTop.min
-// require_tree .
-
-Turbolinks.enableProgressBar();
+//= require_tree .

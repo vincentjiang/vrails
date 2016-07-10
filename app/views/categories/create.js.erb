@@ -1,9 +1,0 @@
-<% if @errors  %>
-  $("#category_title").val("").parent().addClass("has-error")
-  $("#category-title-error").text("<%= @errors %>").removeClass("hidden")
-<% else %>
-  $("#post_category_id").append("<option value=" + "<%= @category.id %>" + ">" + "<%= @category.title %>" + "</option>").val("<%= @category.id %>")
-  $("#category-form").modal("hide")
-  $("#category_title").val("").parent().removeClass("has-error")
-  $("#category-title-error").text("<%= @errors %>").removeClass("hidden")
-<% end %>

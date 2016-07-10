@@ -1,17 +1,21 @@
-h2 分类列表
+h1 Listing categories
 
-table.table.table-hover.table-condensed
-  tr
-    th 名称
-    th 文章数量
-    th 动作
-  - @categories.each do |category|
-    tr id="category-#{category.id}"
-      td = category.title
-      td = category.posts.count
-      td
-        - if category.posts.count.zero?
-          = link_to category, class: "btn btn-danger btn-xs", method: :delete, remote: true, data: { confirm: "您确认删除分类 #{category.title} 吗？" } do
-            = icon 'trash-o'
-            | &nbsp;
-            | 删除
+table
+  thead
+    tr
+      th Name
+      th
+      th
+      th
+
+  tbody
+    - @categories.each do |category|
+      tr
+        td = category.name
+        td = link_to 'Show', category
+        td = link_to 'Edit', edit_category_path(category)
+        td = link_to 'Destroy', category, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Category', new_category_path
